@@ -1,0 +1,140 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enrollment Request - San Beda College Alabang</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="enrollment-page">
+    <!-- Header -->
+    <header class="enrollment-header">
+        <div class="container">
+            <div class="enrollment-header-content">
+                <a href="dashboard.html" class="back-link">
+                    ← Back to Dashboard
+                </a>
+                <img src="lovable-uploads/e8bac684-4f31-4311-bbb9-aab37e24eaa6.png" alt="San Beda College Alabang" class="enrollment-logo">
+            </div>
+        </div>
+    </header>
+
+    <div class="container enrollment-container">
+        <div class="enrollment-wrapper">
+            <div class="enrollment-card">
+                <div class="enrollment-card-header">
+                    <div class="enrollment-card-logo">
+                        <img src="lovable-uploads/e45082fd-7242-437a-b022-82ecf62b8932.png" alt="San Beda Lion" class="enrollment-lion">
+                    </div>
+                    <h1 class="enrollment-card-title">Enrollment Request</h1>
+                    <p class="enrollment-card-description">Fill out the form below to submit your enrollment request</p>
+                </div>
+                
+                <div class="enrollment-card-content">
+                    <form id="enrollmentForm" class="enrollment-form">
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="studentName" class="form-label">Full Name *</label>
+                                <input type="text" id="studentName" name="studentName" placeholder="Enter your full name" class="form-input" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="studentId" class="form-label">Student ID *</label>
+                                <input type="text" id="studentId" name="studentId" placeholder="Enter your Student ID" class="form-input" required>
+                            </div>
+                        </div>
+
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="email" class="form-label">Email Address *</label>
+                                <input type="email" id="email" name="email" placeholder="Enter your email" class="form-input" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="phoneNumber" class="form-label">Phone Number *</label>
+                                <input type="tel" id="phoneNumber" name="phoneNumber" placeholder="Enter your phone number" class="form-input" required>
+                            </div>
+                        </div>
+
+                        <div class="form-grid-3">
+                            <div class="form-group">
+                                <label for="program" class="form-label">Program *</label>
+                                <select id="program" name="program" class="form-select" required>
+                                    <option value="">Select program</option>
+                                    <option value="computer-science">Computer Science</option>
+                                    <option value="business-admin">Business Administration</option>
+                                    <option value="engineering">Engineering</option>
+                                    <option value="education">Education</option>
+                                    <option value="psychology">Psychology</option>
+                                    <option value="nursing">Nursing</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="yearLevel" class="form-label">Year Level *</label>
+                                <select id="yearLevel" name="yearLevel" class="form-select" required>
+                                    <option value="">Select year</option>
+                                    <option value="1st-year">1st Year</option>
+                                    <option value="2nd-year">2nd Year</option>
+                                    <option value="3rd-year">3rd Year</option>
+                                    <option value="4th-year">4th Year</option>
+                                    <option value="graduate">Graduate</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="semester" class="form-label">Semester *</label>
+                                <select id="semester" name="semester" class="form-select" required>
+                                    <option value="">Select semester</option>
+                                    <option value="1st-semester">1st Semester</option>
+                                    <option value="2nd-semester">2nd Semester</option>
+                                    <option value="summer">Summer</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="subjects" class="form-label">Subjects to Enroll</label>
+                            <textarea id="subjects" name="subjects" placeholder="List the subjects you want to enroll in (optional)" class="form-textarea"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="reason" class="form-label">Reason for Enrollment Request</label>
+                            <textarea id="reason" name="reason" placeholder="Please explain the reason for your enrollment request..." class="form-textarea form-textarea-large"></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-full">
+                            📤 Submit Enrollment Request
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('enrollmentForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            const data = {};
+            for (let [key, value] of formData.entries()) {
+                data[key] = value;
+            }
+            
+            // Simulate form submission
+            alert('Enrollment Request Submitted!\n\nYour enrollment request has been successfully submitted. You will receive a confirmation email shortly.');
+            
+            // Reset form
+            this.reset();
+            
+            // Redirect back to dashboard after 2 seconds
+            setTimeout(() => {
+                window.location.href = 'dashboard.html';
+            }, 2000);
+        });
+    </script>
+</body>
+</html>

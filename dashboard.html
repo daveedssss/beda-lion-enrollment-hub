@@ -1,0 +1,175 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard - San Beda College Alabang</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="dashboard-page">
+    <!-- Header -->
+    <header class="dashboard-header">
+        <div class="container">
+            <div class="dashboard-header-content">
+                <div class="dashboard-header-left">
+                    <img src="lovable-uploads/e8bac684-4f31-4311-bbb9-aab37e24eaa6.png" alt="San Beda College Alabang" class="dashboard-logo">
+                    <div class="dashboard-info">
+                        <h1 class="dashboard-title">Student Dashboard</h1>
+                        <p class="dashboard-subtitle">Student ID: <span id="studentIdDisplay"></span></p>
+                    </div>
+                </div>
+                <button onclick="logout()" class="btn btn-outline-red">
+                    🚪 Logout
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <div class="container dashboard-container">
+        <!-- Stats Cards -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-content">
+                    <div class="stat-icon">👤</div>
+                    <div>
+                        <p class="stat-label">Student ID</p>
+                        <p class="stat-value" id="studentIdStat"></p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-content">
+                    <div class="stat-icon">📚</div>
+                    <div>
+                        <p class="stat-label">Overall GPA</p>
+                        <p class="stat-value">3.47</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-content">
+                    <div class="stat-icon">📅</div>
+                    <div>
+                        <p class="stat-label">Current Semester</p>
+                        <p class="stat-value">1st Sem</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-content">
+                    <div class="stat-icon">
+                        <img src="lovable-uploads/e45082fd-7242-437a-b022-82ecf62b8932.png" alt="Lion" class="stat-lion">
+                    </div>
+                    <div>
+                        <p class="stat-label">Total Units</p>
+                        <p class="stat-value">18</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Grades Table -->
+        <div class="grades-card">
+            <div class="grades-header">
+                <h2 class="grades-title">Academic Performance</h2>
+                <p class="grades-description">Your grades for the current academic year</p>
+            </div>
+            
+            <div class="grades-content">
+                <table class="grades-table">
+                    <thead>
+                        <tr>
+                            <th>Subject</th>
+                            <th>Code</th>
+                            <th>Units</th>
+                            <th>Grade</th>
+                            <th>GPA</th>
+                            <th>Semester</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Mathematics</td>
+                            <td>MATH101</td>
+                            <td>3</td>
+                            <td><span class="grade-badge grade-a">A</span></td>
+                            <td>4.0</td>
+                            <td>1st Sem</td>
+                        </tr>
+                        <tr>
+                            <td>English Literature</td>
+                            <td>ENG102</td>
+                            <td>3</td>
+                            <td><span class="grade-badge grade-a">A-</span></td>
+                            <td>3.7</td>
+                            <td>1st Sem</td>
+                        </tr>
+                        <tr>
+                            <td>Computer Science</td>
+                            <td>CS201</td>
+                            <td>4</td>
+                            <td><span class="grade-badge grade-b">B+</span></td>
+                            <td>3.3</td>
+                            <td>1st Sem</td>
+                        </tr>
+                        <tr>
+                            <td>Physics</td>
+                            <td>PHYS101</td>
+                            <td>3</td>
+                            <td><span class="grade-badge grade-b">B</span></td>
+                            <td>3.0</td>
+                            <td>1st Sem</td>
+                        </tr>
+                        <tr>
+                            <td>Philosophy</td>
+                            <td>PHIL101</td>
+                            <td>2</td>
+                            <td><span class="grade-badge grade-a">A</span></td>
+                            <td>4.0</td>
+                            <td>1st Sem</td>
+                        </tr>
+                        <tr>
+                            <td>History</td>
+                            <td>HIST102</td>
+                            <td>3</td>
+                            <td><span class="grade-badge grade-b">B+</span></td>
+                            <td>3.3</td>
+                            <td>2nd Sem</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Enroll Now Button -->
+        <div class="enroll-button">
+            <a href="enrollment.html" class="btn btn-primary btn-floating">
+                Enroll Now
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // Check if user is logged in
+        const isLoggedIn = localStorage.getItem('isLoggedIn');
+        const studentId = localStorage.getItem('studentId');
+        
+        if (!isLoggedIn || !studentId) {
+            window.location.href = 'login.html';
+        } else {
+            document.getElementById('studentIdDisplay').textContent = studentId;
+            document.getElementById('studentIdStat').textContent = studentId;
+        }
+
+        function logout() {
+            localStorage.removeItem('isLoggedIn');
+            localStorage.removeItem('studentId');
+            window.location.href = 'index.html';
+        }
+    </script>
+</body>
+</html>
